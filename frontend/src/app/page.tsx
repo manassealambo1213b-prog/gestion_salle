@@ -6,7 +6,7 @@ export default function Home() {
   const [nbEtudiants, setNbEtudiants] = useState(45);
 
   const chargerSalles = () => {
-    fetch('http://localhost:5000/api/salles')
+    fetch(${process.env.NEXT_PUBLIC_API_URL}/api/salles)
       .then(res => res.json())
       .then(data => setSalles(data));
   };
@@ -14,7 +14,7 @@ export default function Home() {
   useEffect(() => { chargerSalles(); }, []);
 
   const reserver = async (id: number) => {
-    const res = await fetch(`http://localhost:5000/api/reserver/${id}`, { method: 'POST' });
+    const res = await fetch( process.env.NEXTPUBLICAPIURL/api/reserver/{process.env.NEXT_PUBLIC_API_URL}/api/reserver/process.env.NEXTP​UBLICA​PIU​RL/api/reserver/{id}, { method: 'POST' });
     const data = await res.json();
     setSalles(data.salles);
   };
